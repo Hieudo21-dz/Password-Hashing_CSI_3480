@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Hashing – CSI 3480</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Password Strength &amp; Hashing</h1>
+    <p class="note">Use test passwords only. Never enter a real password.</p>
+
+    <section class="card">
+      <label for="password">Password</label>
+      <div class="row">
+        <input id="password" type="text" placeholder="Type a password…" autocomplete="off">
+        <button id="generate" type="button">Generate</button>
+      </div>
+
+      <div class="meter"><div id="meter-bar"></div></div>
+      <p id="rating">Strength: –</p>
+
+      <ul id="metrics">
+        <li>Length: <span id="m-length">0</span></li>
+        <li>Lowercase: <span id="m-lower">✗</span></li>
+        <li>Uppercase: <span id="m-upper">✗</span></li>
+        <li>Numbers: <span id="m-digit">✗</span></li>
+        <li>Symbols: <span id="m-symbol">✗</span></li>
+        <li>Entropy: <span id="m-entropy">0</span> bits</li>
+      </ul>
+
+      <button id="hash" type="button">Hash it</button>
+    </section>
+
+    <section class="card" id="results" hidden>
+      <h2>SHA-256 (fast, for comparison)</h2>
+      <p>Salt: <code id="sha-salt"></code></p>
+      <p>Hash: <code id="sha-hash"></code></p>
+
+      <h2>bcrypt (recommended)</h2>
+      <p>Hash: <code id="bc-hash"></code></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
