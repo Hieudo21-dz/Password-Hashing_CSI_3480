@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Security Tool - CSI 3480</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Password Strength &amp; Hashing Dashboard</h1>
+    <p class="subtitle">Demonstrating Password Generation, Entropy, Salting & Hashing</p>
 
+    <!-- Password Input & Generator -->
+    <section class="card">
+      <h2>1. Test or Generate Password</h2>
+      <div class="row">
+        <input id="password" type="text" placeholder="Type a password or click generate..." autocomplete="off">
+        <button id="generateBtn" type="button">Generate</button>
+      </div>
+
+      <!-- Real-Time Strength Meter -->
+      <div class="meter-container">
+        <div id="meter-bar"></div>
+      </div>
+      <p id="ratingText">Strength: –</p>
+
+      <!-- Security Requirements & Metrics Checklist -->
+      <ul id="metricsList">
+        <li>Length: <span id="m-length">0</span></li>
+        <li>Lowercase (a-z): <span id="m-lower">✗</span></li>
+        <li>Uppercase (A-Z): <span id="m-upper">✗</span></li>
+        <li>Numbers (0-9): <span id="m-digit">✗</span></li>
+        <li>Symbols (!@#$): <span id="m-symbol">✗</span></li>
+        <li>Entropy: <span id="m-entropy">0</span> bits</li>
+      </ul>
+
+      <button id="hashBtn" type="button" class="primary-btn">Hash & Salt Password</button>
+    </section>
+
+    <!-- Cryptographic Output Results -->
+    <section class="card" id="resultsCard" hidden>
+      <h2>2. Cryptographic Output</h2>
+      
+      <div class="hash-block">
+        <h3>SHA-256 (Fast / Demonstration)</h3>
+        <p><strong>Generated Salt:</strong> <code id="sha-salt"></code></p>
+        <p><strong>Resulting Hash:</strong> <code id="sha-hash"></code></p>
+      </div>
+
+      <div class="hash-block">
+        <h3>bcrypt (Secure / Slow Hashing)</h3>
+        <p><strong>Stored Salt & Hash:</strong> <code id="bc-hash"></code></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
