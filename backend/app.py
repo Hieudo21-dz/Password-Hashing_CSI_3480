@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, jsonify, request, send_from_directory
 from generator import generate_password
-from hasing import hash_bcrypt, hash_sha256, verify_bcrypt
+from hashing import hash_bcrypt, hash_sha256, verify_bcrypt
 
 FRONTEND_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "frontend")
 
